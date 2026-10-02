@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ComicCraft - AI Comic Story Creator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Neue', cursive, sans-serif;
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
+      min-height: 100vh;
+      color: #1f2937;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      box-sizing: border-box;
+    }
+    .container {
+      max-width: 650px;
+      width: 100%;
+      background: #fef08a;
+      border: 4px solid #000;
+      box-shadow: 10px 10px 0px #000;
+      border-radius: 12px;
+      padding: 30px;
+      box-sizing: border-box;
+    }
+    h1 {
+      font-family: 'Bangers', cursive;
+      font-size: 3rem;
+      text-align: center;
+      margin: 0 0 10px 0;
+      letter-spacing: 2px;
+      color: #dc2626;
+      text-shadow: 2px 2px 0px #000;
+    }
+    .subtitle {
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 25px;
+      color: #374151;
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+      color: #111827;
+    }
+    input[type="text"], textarea, select {
+      width: 100%;
+      padding: 12px;
+      border: 3px solid #000;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-family: inherit;
+      font-size: 1rem;
+      background: #fff;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+    .row {
+      display: flex;
+      gap: 15px;
+    }
+    .col {
+      flex: 1;
+    }
+    button.submit-btn {
+      width: 100%;
+      padding: 16px;
+      background: #ef4444;
+      color: #fff;
+      font-family: 'Bangers', cursive;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      border: 3px solid #000;
+      box-shadow: 5px 5px 0px #000;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease-in-out;
+      margin-top: 15px;
+    }
+    button.submit-btn:hover {
+      background: #dc2626;
+      transform: translate(-2px, -2px);
+      box-shadow: 7px 7px 0px #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>COMICCRAFT</h1>
+    <div class="subtitle">AI-Powered 5-Panel Comic Generator using Gemini & Stable Diffusion</div>
+    <form action="/generate" method="POST">
+      <div class="form-group">
+        <label for="story_prompt">Story Prompt:</label>
+        <textarea id="story_prompt" name="story_prompt" placeholder="e.g., A brave fox exploring an enchanted forest to find the lost starlight gem..." required>A brave fox named Rusty explores an ancient enchanted forest where glowing will-o'-the-wisps lead him to a long-forgotten celestial temple.</textarea>
+      </div>
+      <div class="row">
+        <div class="col form-group">
+          <label for="character_name">Main Character Name:</label>
+          <input type="text" id="character_name" name="character_name" value="Rusty the Fox" required>
+        </div>
+        <div class="col form-group">
+          <label for="setting">Setting:</label>
+          <select id="setting" name="setting">
+            <option value="Enchanted Forest" selected>Enchanted Forest</option>
+            <option value="Cyberpunk City">Cyberpunk City</option>
+            <option value="High School">High School</option>
+            <option value="Space Station">Space Station</option>
+            <option value="Ancient Ruins">Ancient Ruins</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col form-group">
+          <label for="tone">Story Tone:</label>
+          <select id="tone" name="tone">
+            <option value="Dramatic" selected>Dramatic</option>
+            <option value="Light-hearted / Funny">Light-hearted / Funny</option>
+            <option value="Poetic & Mysterious">Poetic & Mysterious</option>
+            <option value="Action Heroic">Action Heroic</option>
+          </select>
+        </div>
+        <div class="col form-group">
+          <label for="art_style">Art Style:</label>
+          <select id="art_style" name="art_style">
+            <option value="Comic Book" selected>Classic Comic Book (Retro)</option>
+            <option value="Anime">Manga / Anime</option>
+            <option value="Pixel Art">16-bit Pixel Art</option>
+            <option value="Realistic">Realistic Graphic Novel</option>
+            <option value="Dark Noir">Dark Noir</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="submit-btn">GENERATE MY COMIC!</button>
+    </form>
+  </div>
+</body>
+</html>

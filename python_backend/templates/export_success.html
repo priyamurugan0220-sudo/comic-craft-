@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Export Success - ComicCraft</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Neue', cursive, sans-serif;
+      background: radial-gradient(circle, #fef08a 0%, #fde047 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .card {
+      max-width: 600px;
+      background: #ffffff;
+      border: 5px solid #000;
+      box-shadow: 12px 12px 0px #000;
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+    }
+    h1 {
+      font-family: 'Bangers', cursive;
+      font-size: 3.5rem;
+      color: #16a34a;
+      margin: 0 0 10px 0;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 0px #000;
+    }
+    p {
+      font-size: 1.25rem;
+      color: #334155;
+      line-height: 1.6;
+    }
+    .file-pill {
+      display: inline-block;
+      background: #f1f5f9;
+      border: 2px dashed #000;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-family: monospace;
+      margin: 15px 0 25px 0;
+      font-size: 1rem;
+    }
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    a.btn {
+      display: block;
+      text-decoration: none;
+      padding: 14px 24px;
+      font-family: 'Bangers', cursive;
+      font-size: 1.6rem;
+      border: 3px solid #000;
+      border-radius: 8px;
+      box-shadow: 4px 4px 0px #000;
+      cursor: pointer;
+      transition: all 0.15s ease-in-out;
+    }
+    .btn-download {
+      background: #3b82f6;
+      color: white;
+    }
+    .btn-download:hover {
+      background: #2563eb;
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px #000;
+    }
+    .btn-create {
+      background: #ef4444;
+      color: white;
+    }
+    .btn-create:hover {
+      background: #dc2626;
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>BOOM! EXPORT SUCCESSFUL!</h1>
+    <p>Your personalized 5-panel comic story has been compiled into a high-resolution PDF document ready for printing, reading, and sharing!</p>
+    
+    {% if pdf_path %}
+    <div class="file-pill">Saved to: {{ pdf_path }}</div>
+    <div class="btn-group">
+      <a href="{{ pdf_path }}" download class="btn btn-download">OPEN / SAVE PDF FILE</a>
+      <a href="/" class="btn btn-create">GO CREATE ANOTHER COMIC!</a>
+    </div>
+    {% else %}
+    <div class="btn-group">
+      <a href="/" class="btn btn-create">GO CREATE ANOTHER COMIC!</a>
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>
